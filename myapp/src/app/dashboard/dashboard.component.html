@@ -1,9 +1,16 @@
 
 
-<div class="header">
-    <div >
-        <mat-icon>shopping_cart</mat-icon>
-
+<div>
+  <nav style="display: grid; grid-template-columns: repeat(2, 1fr); place-items: center;">
+   <p>Cart Item {{count>0 ? count : ""}}</p>
+    <button (click)="logout()">Logout</button>
+  </nav>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vh; padding: 2vh;">
+    <div *ngFor="let item of product">
+      <h1>Brand: {{ item.brand }}</h1>
+      <img [src]="item.image" [alt]="item.brand" />
+      <h5>Price: {{ item.price }}</h5>
+      <button (click)="handleCart(item.id)" >Cart</button>
     </div>
-  <button>Logout</button>
+  </div>
 </div>
