@@ -1,9 +1,14 @@
-<p>cart works!</p>
-<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vh; padding: 2vh;">
-    <div *ngFor="let item of product">
-      <h1>Brand: {{ item.brand }}</h1>
-      <img [src]="item.image" [alt]="item.brand" />
-      <h5>Price: {{ item.price }}</h5>
-      
+
+  <button mat-button (click)="back()">
+    back >>
+  </button>
+  <h1 style="color: red;">Welcome to Cart Section</h1>
+  <div class="product-grid ">
+    <div  *ngFor="let item of product" class="product-card">
+        <h3>Name: {{ item.brand }}</h3>
+        <div class="img-container">
+            <img [src]="item.image" [alt]="item.brand" />
+        </div>
+        <h5>Price: {{ item.price }}</h5>
+      </div>
     </div>
-  </div>

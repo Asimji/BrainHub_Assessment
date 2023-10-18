@@ -1,8 +1,18 @@
 
-<form (ngSubmit)="login()">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required [(ngModel)]="user.email" >
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required [(ngModel)]="user.password" >
-    <button type="submit">Login</button>
-  </form>
+<div class="tag">
+  <img width="100%" src="https://www.brainerhub.com/wp-content/uploads/2022/10/brainerhub_logo.png" alt="brainhub">
+</div>
+  <div class="login-container">
+    
+    <form (ngSubmit)="login()" class="login-form">
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" required [(ngModel)]="user.email">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" required [(ngModel)]="user.password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="full-width">Login</button>
+    </form>
+  </div>

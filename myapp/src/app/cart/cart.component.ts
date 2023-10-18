@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -9,11 +10,11 @@ import { Component } from '@angular/core';
 export class CartComponent {
   product:any[]=[]
 
-  constructor(private http:HttpClient){}
+  constructor(private http:HttpClient,private router:Router){}
   
 
   ngOnInit(){
-    this.http.get<any[]>('http://localhost:8000/favourite').subscribe(
+    this.http.get<any[]>('https://brainhub.onrender.com/favourite').subscribe(
       (res) => {
      this.product=res;
      },
@@ -22,7 +23,9 @@ export class CartComponent {
      }
    );
   }
-
+back(){
+  this.router.navigate(['/'])
+}
   
   
 }

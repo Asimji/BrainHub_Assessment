@@ -1,0 +1,24 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+ 
+  .product-card {
+    gap: 2vh;
+    display: block;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-card img {
+    border: 2px solid gray;
+    max-width: 100%;
+    height: auto;
+  }

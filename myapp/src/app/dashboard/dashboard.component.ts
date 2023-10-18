@@ -15,7 +15,7 @@ count:number=0
   constructor(private http:HttpClient,private router:Router){}
    
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:8000/products').subscribe(
+    this.http.get<any[]>('https://brainhub.onrender.com/products').subscribe(
       (res) => {
        this.product=res
       },
@@ -27,7 +27,7 @@ count:number=0
   }
  render(){
 
-   this.http.get<any[]>('http://localhost:8000/favourite').subscribe(
+   this.http.get<any[]>('https://brainhub.onrender.com/favourite').subscribe(
      (res) => {
     this.count=res.length
     },
@@ -48,7 +48,7 @@ cartClick(){
 
   handleCart(id:number){
    
-    this.http.get<any[]>(`http://localhost:8000/favourite`).subscribe(
+    this.http.get<any[]>(`https://brainhub.onrender.com/favourite`).subscribe(
       (favorites) => {
         const existingItem = favorites.find((item) => item.id === id);
         if (existingItem) {
@@ -56,11 +56,11 @@ cartClick(){
         } else {
   
           let selectedProduct = this.product.find((item) => item.id === id);
-          this.http.post('http://localhost:8000/favourite', selectedProduct).subscribe(
+          this.http.post('https://brainhub.onrender.com/favourite', selectedProduct).subscribe(
             (response) => {
               console.log('Item added to favorites:', response);
   
-              this.http.get<any[]>(`http://localhost:8000/favourite`).subscribe(
+              this.http.get<any[]>(`https://brainhub.onrender.com/favourite`).subscribe(
                 (favorites) => {
                   this.count = favorites.length;
                 },

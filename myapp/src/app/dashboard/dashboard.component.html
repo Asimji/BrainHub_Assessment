@@ -1,14 +1,21 @@
 
 
 <div>
-  <nav style="display: grid; grid-template-columns: repeat(2, 1fr); place-items: center;">
-   <button (click)="cartClick()">Cart Item {{count>0 ? count : ""}}</button>
-    <button (click)="logout()">Logout</button>
+  <nav style="display: grid; grid-template-columns: repeat(3, 1fr); place-items: center;">
+    <button mat-button>HomePage</button>
+  
+    <button mat-icon-button (click)="cartClick()" class="cart-icon">
+      <mat-icon>add_shopping_cart</mat-icon>
+      <span *ngIf="count > 0">{{ count }}</span>
+    </button>
+    <button mat-button (click)="logout()">Logout</button>
   </nav>
-  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vh; padding: 2vh;">
-    <div *ngFor="let item of product">
-      <h1>Brand: {{ item.brand }}</h1>
-      <img [src]="item.image" [alt]="item.brand" />
+  <div class="product-grid ">
+  <div  *ngFor="let item of product" class="product-card">
+      <h3>Name: {{ item.brand }}</h3>
+      <div class="img-container">
+        <img [src]="item.image" [alt]="item.brand" />
+    </div>
       <h5>Price: {{ item.price }}</h5>
       <button (click)="handleCart(item.id)" >Cart</button>
     </div>

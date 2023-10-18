@@ -16,7 +16,7 @@ export class LoginComponent {
       localStorage.setItem('brain', 'true');
       this.router.navigate(['/'])
     } else {
-    alert("Invalid UserName or Password")
+    alert("Invalid Username or Password")
     }
      
     
