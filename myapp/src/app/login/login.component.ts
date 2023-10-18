@@ -13,7 +13,6 @@ export class LoginComponent {
 
   login() {
     if (this.user.email === 'admin@gmail.com' && this.user.password === 'Abcd@1234') {
-      // Successful login, navigate to the dashboard
       localStorage.setItem('brain', 'true');
       this.router.navigate(['/'])
     } else {

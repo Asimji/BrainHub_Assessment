@@ -37,7 +37,9 @@ count:number=0
   );
     }
 
-
+cartClick(){
+  this.router.navigate(['/cart'])
+}
 
   logout() {
     localStorage.removeItem('brain');
@@ -52,13 +54,12 @@ count:number=0
         if (existingItem) {
           alert('Item already exists in the cart');
         } else {
-          // Item doesn't exist, add it to the server
+  
           let selectedProduct = this.product.find((item) => item.id === id);
           this.http.post('http://localhost:8000/favourite', selectedProduct).subscribe(
             (response) => {
               console.log('Item added to favorites:', response);
   
-              // Now, fetch the updated count from the server
               this.http.get<any[]>(`http://localhost:8000/favourite`).subscribe(
                 (favorites) => {
                   this.count = favorites.length;

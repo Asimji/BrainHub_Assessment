@@ -2,7 +2,7 @@
 
 <div>
   <nav style="display: grid; grid-template-columns: repeat(2, 1fr); place-items: center;">
-   <p>Cart Item {{count>0 ? count : ""}}</p>
+   <button (click)="cartClick()">Cart Item {{count>0 ? count : ""}}</button>
     <button (click)="logout()">Logout</button>
   </nav>
   <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vh; padding: 2vh;">
